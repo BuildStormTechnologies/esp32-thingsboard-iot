@@ -45,10 +45,10 @@ Supported features:
 
 The platform has been successfully tested on ESP32 and ESP32S3. In the upcoming days, it will be extended to  all versions of the ESP32 chips.
 
-| Name            | BLE           | OTA           |
-|-----------------|---------------|---------------|
-| ESP32           | Supported     | Supported     |
-| ESP32 S3        | Supported     | Supported     |
+| Name            | BLE           | OTA           |Ethernet W5500 |
+|-----------------|---------------|---------------|---------------|
+| ESP32           | Supported     | Supported     | Supported     |
+| ESP32 S3        | Supported     | Supported     | Supported     |
 
 
 
