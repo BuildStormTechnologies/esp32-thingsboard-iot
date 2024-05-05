@@ -126,11 +126,19 @@ void app_main()
         /* Attributes and Telemtery Configuration */
         .maxAttributes_u8 = 4,
         .maxTelemetryElements_u8 = 2,
-        /* Thingsboard Configuration */
-        // .s_mqttClientConfig = {
-        //     .pUriStr = THINGSBOARD_URI,
-        //     .pProvisionDeviceKey = PROVISION_DEVICE_KEY,
-        //     .pProvisionDeviceSecret = PROVISION_DEVICE_SECRET}
+        .s_ethernetConfig={
+            .spiFreq_u32 = 24000000,
+            .mosi_s8 = 13,
+            .miso_s8 = 12,
+            .sck_s8 = 14,
+            .cs_s8 = 15,
+            .intr_s8 = 22,
+            .reset_s8 = -1,
+        },
+        .s_mqttClientConfig = {
+            .pUriStr = THINGSBOARD_URI,
+            .pProvisionDeviceKey = PROVISION_DEVICE_KEY,
+            .pProvisionDeviceSecret = PROVISION_DEVICE_SECRET}
     };
 
     if (SYSTEM_init(&sysConfig) == TRUE)

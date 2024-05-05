@@ -12,6 +12,8 @@ add_prebuilt_library(
                      REQUIRES 
                         esp_http_client
                         esp-tls
+                        esp_eth
+                        lwip
                         app_update
                         mqtt
                         spi_flash

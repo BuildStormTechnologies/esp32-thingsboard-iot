@@ -26,6 +26,7 @@
 
 #include "lib_thingsboard.h"
 #include "lib_mqtt.h"
+#include "lib_ethernet.h"
 
 #include "lib_ota.h"
 #include "lib_utils.h"
@@ -55,17 +56,19 @@ typedef enum
  */
 typedef enum
 {
-    EVENT_WIFI_CONNECTED,       /*!< WiFi is connected */
-    EVENT_WIFI_DISCONNECTED,    /*!< WiFi is disconnected */
-    EVENT_BLE_CONNECTED,        /*!< Device is connected to BLE central device */
-    EVENT_BLE_AUTHENTICATED,    /*!< A BLE xentral device has authenticated successfully */
-    EVENT_BLE_DISCONNECTED,     /*!< Device is disconnected from BLE central device */
-    EVENT_BLE_SEND_SUCCESS,     /*!< Packet was successfully sent from BLE*/
-    EVENT_MQTT_CONNECTED,       /*!< Device is connected to MQTT broker */
-    EVENT_MQTT_DISCONNECTED,    /*!< Device is disconnected from MQTT broker */
-    EVENT_MQTT_PUBLISH_SUCCESS, /*!< Message was successfully published from MQTT*/
-    EVENT_THING_PROVISIONED,    /*!< Device Provision complete*/
-    EVENT_MAX                   /*!< Total number of system events */
+    EVENT_WIFI_CONNECTED,         /*!< WiFi is connected */
+    EVENT_WIFI_DISCONNECTED,      /*!< WiFi is disconnected */
+    EVENT_ETHERNET_CONNECTED,     /*!< Ethernet is connected */
+    EVENT_ETHERNET_DISCONNECTED,  /*!< Ethernet is disconnected */
+    EVENT_BLE_CONNECTED,          /*!< Device is connected to BLE central device */
+    EVENT_BLE_AUTHENTICATED,      /*!< A BLE xentral device has authenticated successfully */
+    EVENT_BLE_DISCONNECTED,       /*!< Device is disconnected from BLE central device */
+    EVENT_BLE_SEND_SUCCESS,       /*!< Packet was successfully sent from BLE*/
+    EVENT_MQTT_CONNECTED,         /*!< Device is connected to MQTT broker */
+    EVENT_MQTT_DISCONNECTED,      /*!< Device is disconnected from MQTT broker */
+    EVENT_MQTT_PUBLISH_SUCCESS,   /*!< Message was successfully published from MQTT*/
+    EVENT_THING_PROVISIONED,      /*!< Device Provision complete*/
+    EVENT_MAX                     /*!< Total number of system events */
 } systemEvents_et;
 
 /**
@@ -92,6 +95,7 @@ typedef struct
     char *pAppVersionStr;                       /*!< Application version */
     systemEventCb_t systemEventCallbackHandler; /*!< System event callback handler */
     mqttClientConfig_st s_mqttClientConfig;     /*!< Mqtt configuration */
+    ethernetConfig_st s_ethernetConfig;         /*!< Ethernet pin configuration */
 } systemInitConfig_st;
 
 /**
